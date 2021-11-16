@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "../api";
+
+package user;
+
+service UserService {
+  rpc UserInfo (UserInfoRequest) returns (UserInfoReply);
+}
+
+message UserInfoRequest {
+  uint64 uid = 1;
+}
+
+message UserInfoReply {
+  User user = 1;
+}
+
+message User {
+  uint64 uid = 1;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+}
